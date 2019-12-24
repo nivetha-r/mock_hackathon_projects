@@ -1,0 +1,13 @@
+package com.insurancepolicy.insurancepolicy.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class TrendingResponseDto {
+	private List<TrendingDto> data;
+	public String message;
+	public Integer statuscode;
+
+}

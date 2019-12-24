@@ -1,0 +1,45 @@
+package com.creditcard.creditcards.controller;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.creditcard.creditcards.constant.Constant;
+import com.creditcard.creditcards.dto.ApiResponse;
+import com.creditcard.creditcards.dto.UserDto;
+import com.creditcard.creditcards.dto.UserResponseDto;
+import com.creditcard.creditcards.service.UserService;
+import com.creditcard.creditcards.util.Constants;
+
+@RunWith(MockitoJUnitRunner.Silent.class)
+public class UserControllerTest {
+	
+	@InjectMocks 
+	UserController userController;
+	
+	@Mock
+	UserService userService;
+	
+	
+	@Test
+	public void testAddUser() {
+		UserDto userDto=new UserDto();
+		userDto.setAddress("vellore");
+		userDto.setCreditCardId(1L);
+		userDto.setMobileNumber(9898989898L);
+		userDto.setName("nivi");
+		userDto.setPassword("mmmm");
+		userDto.setSalary(29999.99);
+		userDto.setUserId(2L);
+		userDto.setUserName("Nivetha");
+		UserResponseDto apiResponse=new ApiResponse();
+		apiResponse.setMessage(Constants.USER_SUCCESS_MSG);
+		apiResponse.setStatusCode(Constants.SUCCESS_CODE);
+		UserResponseDto userResponseDto=new UserResponseDto();
+		Mockito.when(userService.addUser(userDto)).thenReturn(apiResponse);
+	}
+
+}

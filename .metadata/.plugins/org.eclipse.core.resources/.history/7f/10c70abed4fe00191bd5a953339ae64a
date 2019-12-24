@@ -1,0 +1,19 @@
+package com.trade.app;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="stocks")
+public class Stock {
+	
+	@Id
+	int stockid;
+	String name;
+	int qty;
+	double price;
+	int brokerage;
+	
+
+}

@@ -1,0 +1,37 @@
+package com.creditcard.creditcards.service;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.Optional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.creditcard.creditcards.dto.LoginResponseDto;
+import com.creditcard.creditcards.entity.User;
+import com.creditcard.creditcards.exception.UserNotFoundException;
+import com.creditcard.creditcards.repository.LoginRepository;
+
+@RunWith(MockitoJUnitRunner.Silent.class)
+public class LoginServiceTest {
+	
+	@InjectMocks
+	LoginServiceImpl loginServiceImpl;
+	
+	@Mock
+    LoginRepository loginRepository;
+	
+	@Test
+	public void testLoginUser() throws UserNotFoundException {
+		LoginResponseDto loginResponseDto = new LoginResponseDto();
+		User user=new User();
+		Mockito.when(loginRepository.findByUserNameAndPassword("Nivi", "nnnn")).thenReturn(Optional.of(user));
+//		LoginResponseDto response=loginServiceImpl.loginUser(user.getUserName(), user.getPassword());
+//		assertEquals(loginResponseDto, response);
+	}
+
+}

@@ -1,0 +1,45 @@
+package com.hcl.parking.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name="slots")
+public class Slot implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer slotId;
+	private String slotName;
+	private Integer regId;
+	public Integer getSlotId() {
+		return slotId;
+	}
+	public void setSlotId(Integer slotId) {
+		this.slotId = slotId;
+	}
+	public String getSlotName() {
+		return slotName;
+	}
+	public void setSlotName(String slotName) {
+		this.slotName = slotName;
+	}
+	public Integer getRegId() {
+		return regId;
+	}
+	public void setRegId(Integer regId) {
+		this.regId = regId;
+	}
+	
+
+}

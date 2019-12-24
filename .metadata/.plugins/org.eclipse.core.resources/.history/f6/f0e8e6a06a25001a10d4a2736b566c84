@@ -1,0 +1,76 @@
+package com.creditcard.creditcards.service;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.creditcard.creditcards.dto.TransactionResponseDto;
+import com.creditcard.creditcards.entity.CreditCard;
+import com.creditcard.creditcards.repository.TransactionRepository;
+
+@Service
+public class TransactionServiceImpl implements TransactionService {
+	@Autowired
+	TransactionRepository transactionRepository;
+
+
+		
+	@Override
+	public List<TransactionResponseDto> transactionStatement(Long cardNo, Integer month, Integer year) {
+		//logger.info("Inside statement service");
+
+		TransactionResponseDto transactionResponseDto=new TransactionResponseDto();
+
+		List<TransactionResponseDto> statementList = new ArrayList<>();
+
+		String years = "20" + year;
+
+		int finalYears = Integer.parseInt(years);
+
+		LocalDate fromDate = LocalDate.of(finalYears, month, 01);
+
+		LocalDate toDate = fromDate.plusDays(29);
+
+		List<CreditCard> cardList = creditCardRepository.findByCardNumber(cardNo);
+
+		if (cardList.isEmpty()) {
+
+			throw new NoCardFoundException("Incorrect card Number");
+
+		}
+
+		else {
+			CreditCard creditCard = cardList.get(0);
+
+			Integer cardId = creditCard.getCardId();
+			String status = "SUCCESS";
+			List<Transaction> cardTransactions = detailedStatementRespository.findByCardIdAndDateAndStatus(cardId,
+					fromDate, toDate, status);
+
+			for (Transaction transaction : cardTransactions) {
+
+				TransactionResponseDto = new TransactionResponseDto();
+
+				TransactionResponseDto.setAmount(transaction.getAmount());
+				TransactionResponseDto.setDate(transaction.getDate());
+				TransactionResponseDto.setDescription(transaction.getDescription());
+				TransactionResponseDto.setTransactionType(transaction.getTransactionType());
+				statementList.add(TransactionResponseDto);
+
+			}
+
+		}
+
+		if (statementList.isEmpty()) {
+
+			throw new NoRecordsFound("No Records Found");
+		}
+
+		else {
+			return statementList;
+		}
+
+	}

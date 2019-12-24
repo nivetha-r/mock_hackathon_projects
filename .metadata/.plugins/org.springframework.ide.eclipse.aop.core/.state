@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="banking"/>
+<aop-project name="mortgage"/>
+<aop-project name="ParkingSlot"/>
+<aop-project name="TimeSheetApplication"/>
+<aop-project name="TradeService"/>
+<aop-project name="TrainingApplication-1"/>
+<aop-project name="BusTicketBooking"/>
+<aop-project name="ParkingApplication"/>
+<aop-project name="ecommerce"/>
+<aop-project name="TrainingCourses"/>
+<aop-project name="BankingApplication"/>
+<aop-project name="TrainingModule"/>
+<aop-project name="HclParking"/>
+<aop-project name="Cassini"/>
+<aop-project name="creditcards"/>
+<aop-project name="E-Commerce"/>
+<aop-project name="RetailBanking"/>
+<aop-project name="movie"/>
+<aop-project name="TradingApp"/>
+<aop-project name="search"/>
+<aop-project name="ProductApplication"/>
+<aop-project name="DiscoveryMicroService"/>
+<aop-project name="MedicalClaim"/>
+</aop-reference-model>

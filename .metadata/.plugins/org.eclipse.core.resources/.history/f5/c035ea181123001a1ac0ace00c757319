@@ -1,0 +1,5 @@
+package com.insurancepolicy.insurancepolicy.repository;
+
+public interface TrendingRepository {
+
+}

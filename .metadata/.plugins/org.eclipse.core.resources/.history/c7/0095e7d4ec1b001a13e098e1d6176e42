@@ -1,0 +1,47 @@
+package com.claim.medical.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.claim.medical.dto.ClaimDetailsResponseDto;
+import com.claim.medical.entity.Claim;
+import com.claim.medical.exception.PolicyNotFoundException;
+import com.claim.medical.repository.ClaimRepository;
+
+@Service
+public class ClaimServiceImpl implements ClaimService {
+	@Autowired
+	ClaimRepository claimRepository;
+
+
+	@Override
+	public ClaimDetailsResponseDto viewClaimDetails(Integer claimId) {
+		
+		Claim claim=claimRepository.findByClaim(policyId);
+		Policy policy=policyRepository.findByPolicyId(policyId);
+		
+		if(medicalClaim != null) {
+			ClaimStatus claimStatus=claimStatusRepository.findByClaimId(medicalClaim.getClaimId());
+			log.info("claim found...");
+			ClaimDetailsResponseDto claimDetailsResponseDto= new ClaimDetailsResponseDto();
+			claimDetailsResponseDto.setClaimId(medicalClaim.getClaimId());
+			claimDetailsResponseDto.setClaimRaisedDate(medicalClaim.getClaimRaisedDate());
+			claimDetailsResponseDto.setClaimAmount(medicalClaim.getClaimAmount());
+			claimDetailsResponseDto.setClaimType(policy.getPolicyType());
+			claimDetailsResponseDto.setApproverId(claimStatus.getApproverId());
+			claimDetailsResponseDto.setClaimFirstLevelStatus(claimStatus.getClaimFirstLevelStatus());
+			claimDetailsResponseDto.setClaimSecondLevelStatus(claimStatus.getClaimSecondLevelStatus());
+			claimDetailsResponseDto.setSeniorAppoverId(claimStatus.getSeniorAppoverId());
+			claimDetailsResponseDto.setStatusMessage(MedicalClaimConstants.SUCCESS_STATUS_MESSAGE_POLICY_FETCH);
+			claimDetailsResponseDto.setStatusCode(MedicalClaimConstants.SUCCESS_STATUS_CODE);
+			claimDetailsResponseDto.setStatus("success");
+
+		
+		return claimDetailsResponseDto;
+		}
+		else {
+			throw new PolicyNotFoundException(MedicalClaimConstants.INVALIED_STATUS_MESSAGE_POLICY_FETCH);
+		}
+	}
+
+	

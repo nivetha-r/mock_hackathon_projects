@@ -1,0 +1,8 @@
+package com.hcl.parking.repository;
+
+public class Snippet {
+	public static void main(String[] args) {
+		ErrorResponse
+	}
+}
+

@@ -1,0 +1,64 @@
+package com.insurancepolicy.insurancepolicy.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.insurancepolicy.insurancepolicy.constants.Constants;
+import com.insurancepolicy.insurancepolicy.dto.TrendingDto;
+import com.insurancepolicy.insurancepolicy.dto.TrendingResponseDto;
+import com.insurancepolicy.insurancepolicy.entity.Policy;
+import com.insurancepolicy.insurancepolicy.entity.PolicyHolder;
+import com.insurancepolicy.insurancepolicy.exception.PolicyNotFoundException;
+import com.insurancepolicy.insurancepolicy.repository.PolicyHolderRepository;
+import com.insurancepolicy.insurancepolicy.repository.PolicyRepository;
+
+@Service
+public class PolicyHolderServiceImpl implements PolicyHolderService {
+
+	@Autowired
+	PolicyHolderRepository policyHolderRepository;
+
+
+	@Override
+	public List<TrendingResponseDto> getAllTrendingPolicies() {
+		
+//		List<PolicyHolder> policies=policyHolderRepository.findAll();
+//		List<TrendingResponseDto> trendingAllResposeList = new ArrayList<>();
+
+		TrendingResponseDto trendingResponseDto = new TrendingResponseDto();
+
+		List<TrendingDto> trendingDtos = new ArrayList<>();
+		
+		List<PolicyHolder> policyHolders = policyHolderRepository.getAllTrendingPolicies();
+		
+		long count = policyHolderRepository.count();
+
+		
+		policyHolders.stream().map(policy -> {
+			policy.
+		}
+		
+		
+
+		for (TrendingResponseDto response : trendingResponseList) {
+
+			Optional<PolicyHolder> policyHolder= policyHolderRepository.findById(response.getPolicyId());
+
+			if (!policy.isPresent())
+				throw new PolicyNotFoundException(Constants.POLICY_NOT_FOUND);
+
+			trendingResponseDto.setPolicyId(policyHolder.get().getpolicy);
+			trendingResponseDto.setPolicyName(policy.get().getPolicyName());
+			trendingResponseDto.setCount(response.getCount());
+			trendingResponseDto.setPercentage((double) (response.getCount() * count / 100));
+
+		}
+
+		return trendingAllResposeList;
+	}
+
+}

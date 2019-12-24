@@ -1,0 +1,11 @@
+package com.creditcard.creditcards.service;
+
+import java.util.Optional;
+
+import com.creditcard.creditcards.entity.User;
+
+public interface UserService {
+
+	Optional<User> loginUser(String userName, String userPassword);
+
+}

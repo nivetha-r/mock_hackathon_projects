@@ -1,0 +1,8 @@
+package com.creditcard.creditcards.dto;
+
+@Setter
+@Getter
+public class UserLogin {
+	private String userName; 
+	private String password;
+}

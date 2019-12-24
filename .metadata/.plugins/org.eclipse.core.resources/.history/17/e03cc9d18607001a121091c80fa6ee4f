@@ -1,0 +1,6 @@
+package com.hcl.training.service;
+
+public interface SchedulerService {
+
+	public void runTask();
+}

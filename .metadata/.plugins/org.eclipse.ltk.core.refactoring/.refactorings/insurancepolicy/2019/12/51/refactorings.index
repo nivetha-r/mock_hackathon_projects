@@ -1,0 +1,16 @@
+1576828073174	Delete element
+1576829037607	Delete element
+1576829075517	Delete element
+1576829577748	Rename type 'PlaceNotFoundException'
+1576831769521	Copy compilation unit
+1576832511182	Delete element
+1576833616713	Rename type 'PolicyRepository'
+1576833628184	Delete element
+1576833711565	Delete element
+1576836762450	Delete element
+1576838285632	Rename type 'TrendingRepository'
+1576839760451	Copy compilation unit
+1576841540546	Rename type 'TrendingService'
+1576841561371	Rename type 'TrendingServiceImpl'
+1576842324288	Rename type 'TrendingController'
+1576842820387	Extract Class...

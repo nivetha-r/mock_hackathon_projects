@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="com.creditcard.creditcards.controller" project="creditcards" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="com.creditcard.creditcards.controller.LoginControllerTest" time="0.484" displayname="LoginControllerTest" uniqueid="[engine:junit-vintage]/[runner:com.creditcard.creditcards.controller.LoginControllerTest]">
+    <testcase name="testLoginUserNegative" classname="com.creditcard.creditcards.controller.LoginControllerTest" time="0.48" displayname="testLoginUserNegative" uniqueid="[engine:junit-vintage]/[runner:com.creditcard.creditcards.controller.LoginControllerTest]/[test:testLoginUserNegative(com.creditcard.creditcards.controller.LoginControllerTest)]"/>
+    <testcase name="testLoginUser" classname="com.creditcard.creditcards.controller.LoginControllerTest" time="0.004" displayname="testLoginUser" uniqueid="[engine:junit-vintage]/[runner:com.creditcard.creditcards.controller.LoginControllerTest]/[test:testLoginUser(com.creditcard.creditcards.controller.LoginControllerTest)]"/>
+  </testsuite>
+  <testsuite name="com.creditcard.creditcards.controller.TransactionControllerTest" time="0.012" displayname="TransactionControllerTest" uniqueid="[engine:junit-vintage]/[runner:com.creditcard.creditcards.controller.TransactionControllerTest]">
+    <testcase name="testMonthlyTransactions" classname="com.creditcard.creditcards.controller.TransactionControllerTest" time="0.012" displayname="testMonthlyTransactions" uniqueid="[engine:junit-vintage]/[runner:com.creditcard.creditcards.controller.TransactionControllerTest]/[test:testMonthlyTransactions(com.creditcard.creditcards.controller.TransactionControllerTest)]"/>
+  </testsuite>
+</testrun>

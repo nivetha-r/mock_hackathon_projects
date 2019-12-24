@@ -1,0 +1,59 @@
+
+package com.hcl.trade.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.hcl.trade.dto.Buy;
+import com.hcl.trade.model.Stocks;
+import com.hcl.trade.model.UserStocks;
+import com.hcl.trade.repository.UserStocksRepository;
+
+@Service
+public class UserStocksService {
+
+	@Autowired
+	UserStocksRepository userStocksRepository;
+
+	@Autowired
+	StockService stockService;
+
+	public List<UserStocks> findByUserId(Integer userId) {
+		return userStocksRepository.findByUserId(userId);
+	}
+
+	@Transactional  //if one fails other gets rolled back and it will not affect database,finally only it commits
+	public String buy(Buy buy) {
+		Stocks stocks = stockService.findStockByStockId(buy.getStockId());
+		int quantityOrdered = buy.getQuantityOrdered();
+		int quantity = stocks.getQuantity();
+		String res = "";
+		if (quantity >= quantityOrdered) {
+			quantity = quantity - quantityOrdered;
+			stocks.setQuantity(quantity);
+			int brokerage = stocks.getBrokerage();
+			double pricePerStock = stocks.getPrice();
+			double totalPrice = 0.0;
+			double brokerageAmount = 0;
+			brokerageAmount = pricePerStock * quantityOrdered * brokerage / 100;
+			totalPrice = (pricePerStock * quantityOrdered) + brokerageAmount;
+			UserStocks userStocks = new UserStocks();
+			userStocks.setUserId(buy.getUserId());
+			userStocks.setStockId(buy.getStockId());
+			userStocks.setStockName(stocks.getStockName());
+			userStocks.setQuantityOrdered(buy.getQuantityOrdered());
+			userStocks.setTotalPrice(totalPrice);
+			userStocksRepository.save(userStocks);
+			stockService.saveStock(stocks);
+			return res = "Order placed Successfully";
+		} else {
+			res = "Order not placed";
+		}
+
+		return res;
+
+	}
+}

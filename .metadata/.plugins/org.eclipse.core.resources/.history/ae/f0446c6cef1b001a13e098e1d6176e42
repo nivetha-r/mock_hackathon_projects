@@ -1,0 +1,9 @@
+package com.claim.medical.constants;
+
+public class Constant {
+	
+	private static final String POLICY_NOT_FOUND="policy not found";
+
+
+
+}

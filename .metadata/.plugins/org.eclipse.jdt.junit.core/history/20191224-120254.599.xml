@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserControllerTest.testAddUser" project="creditcards" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.creditcard.creditcards.controller.UserControllerTest" time="0.755" displayname="UserControllerTest" uniqueid="[engine:junit-vintage]/[runner:com.creditcard.creditcards.controller.UserControllerTest]">
+    <testcase name="testAddUser" classname="com.creditcard.creditcards.controller.UserControllerTest" time="0.755" displayname="testAddUser" uniqueid="[engine:junit-vintage]/[runner:com.creditcard.creditcards.controller.UserControllerTest]/[test:testAddUser(com.creditcard.creditcards.controller.UserControllerTest)]"/>
+  </testsuite>
+</testrun>

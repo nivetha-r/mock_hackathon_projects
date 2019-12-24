@@ -1,0 +1,25 @@
+package com.hcl.trading.controller;
+
+import java.awt.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/userstock")
+public class UserStockController {
+	
+	@Autowired
+	UserStockService userstockService;
+	
+	@GetMapping("/AllStocks/{userid}")
+	public List<UserStock> userList(@PathVariable int userId){ 
+		return (List<UserStock>) userStockService.userStockList(userId);
+	}
+	
+	@PostMapping("/buy")
+	public String buy(@RequestBody Buy buy){ 
+		return userStockService.userBuy(buy);
+	}

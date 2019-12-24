@@ -1,0 +1,44 @@
+package com.insurancepolicy.insurancepolicy.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.insurancepolicy.insurancepolicy.dto.TrendingResponseDto;
+import com.insurancepolicy.insurancepolicy.repository.PolicyRepository;
+import com.insurancepolicy.insurancepolicy.repository.TrendingRepository;
+
+@Service
+public class TrendingServiceImpl implements TrendingService{
+	
+	
+	@Autowired
+	TrendingRepository trendingRepository;
+	
+	@Autowired
+	PolicyRepository policyRepository;
+	
+
+	@Override
+	public List<TrendingResponseDto> getAllTrendingPolicies() {
+		List<TrendingResponseDto> responseList = new ArrayList<>();
+		List<TrendingResponseDto> trendingList = policyRepository.getAllTrendings();
+		if (trendingList.isEmpty()) {
+			throw new TrendingsNotFoundException(.TRENDINGS_NOT_FOUND);
+		} else {
+			trendingList.stream().forEach(t -> {
+				TrendingResponseDto response = new TrendingResponseDto();
+				Double percent = (t.getCount() / 10d) * 100d;
+				response.setPercentage(percent);
+				BeanUtils.copyProperties(t, response);
+				responseList.add(response);
+			});
+		}
+		return responseList;
+	}
+
+
+}

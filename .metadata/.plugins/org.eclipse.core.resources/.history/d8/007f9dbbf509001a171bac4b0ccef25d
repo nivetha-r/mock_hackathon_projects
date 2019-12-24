@@ -1,0 +1,50 @@
+package com.hcl.parking.service;
+
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hcl.parking.dto.LoginDto;
+import com.hcl.parking.dto.LoginResponseDto;
+import com.hcl.parking.entity.Employee;
+import com.hcl.parking.entity.Registration;
+import com.hcl.parking.entity.Role;
+import com.hcl.parking.exception.UserNotFoundException;
+import com.hcl.parking.repository.RoleRepository;
+import com.hcl.parking.repository.UserRepository;
+import com.hcl.parking.util.PasswordUtil;
+
+
+@Service
+public class LoginServiceImpl implements LoginService {
+	@Autowired
+	UserRepository userRepository;
+	@Autowired
+	EmployeeRepository employeeRepository;
+
+	private static final Logger logger = LoggerFactory.getLogger(LoginServiceImpl.class);
+
+	
+	@Override
+	public LoginResponseDto loginUser(LoginDto loginDto) {
+		LoginResponseDto loginResponseDto = new LoginResponseDto();
+		PasswordUtil passwordUtil = new PasswordUtil();
+		logger.info("inside the loginUser method..");
+		Optional<Registration> registration = userRepository.findByUserName(loginDto.getUserName());
+		if (!registration.isPresent())
+			throw new UserNotFoundException("Invalid credentials");
+		Optional<Employee> employee = employeeRepository.findById(registration.get().getEmpId());
+		if (!employee.isPresent())
+			throw new UserNotFoundException("emp id not available");
+		if (registration.get().getUserName().equalsIgnoreCase(loginDto.getUserName())
+				&& registration.get().getPassword().equals(passwordUtil.encodePassword(loginDto.getPassword()))) {
+			loginResponseDto.setMessage("Login success");
+			loginResponseDto.setRegId(registration.get().getRegId());
+			loginResponseDto.setEmpName(employee.get().getEmpName());
+		}
+		return loginResponseDto;
+	}
+}

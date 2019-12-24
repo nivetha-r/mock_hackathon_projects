@@ -1,0 +1,14 @@
+package com.insurancepolicy.insurancepolicy.dto;
+
+@Setter
+@Getter
+public class TrendingDto {
+	
+	public String policyName;
+	public Long count;
+	public Double percentage;
+	
+
+	public TrendingDto() {
+	}
+}

@@ -1,0 +1,14 @@
+package com.insurancepolicy.insurancepolicy.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.insurancepolicy.insurancepolicy.dto.TrendingResponseDto;
+
+@Service
+public interface TrendingService {
+
+	List<TrendingResponseDto> getAllTrendingPolicies();
+
+}

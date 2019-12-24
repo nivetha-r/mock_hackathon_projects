@@ -1,0 +1,11 @@
+package com.matrimony.cassini.service;
+
+import com.matrimony.cassini.dto.RaiseRequestDto;
+import com.matrimony.cassini.dto.RaiseResponseDto;
+import com.matrimony.cassini.exception.UserNotFoundException;
+
+public interface UserMappingService {
+
+	RaiseResponseDto raiseRequest(RaiseRequestDto raiseRequestDto) throws UserNotFoundException;
+
+}

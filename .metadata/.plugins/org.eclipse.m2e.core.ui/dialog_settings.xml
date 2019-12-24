@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\User1\Downloads\usecase"/>
+			<item value="C:\Users\User1\Desktop\mortgage_backend-master\mortgage_backend-master"/>
+			<item value="C:\Users\User1\Desktop\mortgage_backend-master"/>
+			<item value="C:\Users\User1\Downloads\Mortgage-master"/>
+			<item value="C:\nivetha\trading app\Mortgage"/>
+			<item value="C:\today\Matrimony"/>
+			<item value="C:\nivetha\Matrimony"/>
+			<item value="C:\nivetha\trading app\Matrimony"/>
+			<item value="C:\Users\User1\Downloads\Matrimony-master"/>
+			<item value="C:\nivetha\trading app\MedicalClaim"/>
+			<item value="C:\nivetha\trading app\MedicalClaims"/>
+			<item value="C:\Users\User1\Downloads\movie"/>
+			<item value="C:\Users\User1\Downloads\MockRetail"/>
+			<item value="C:\Users\User1\Downloads\RetailBankingSqd"/>
+			<item value="C:\Users\User1\Downloads\RetailBankingSqd2"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

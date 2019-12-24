@@ -1,0 +1,14 @@
+package com.insurancepolicy.insurancepolicy.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class TrendingResponseDto {
+	private Long policyId;
+	private String policyName;
+	private Long count;
+	private Double percentage;
+
+}

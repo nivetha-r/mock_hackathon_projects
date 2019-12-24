@@ -1,0 +1,11 @@
+package com.creditcard.creditcards.entity;
+
+public class CreditCard {
+	
+	private Long cardId;
+	private Long cardNumber;
+	private Double limit;
+	private double balance;
+	private Integer cvv;
+	private LocalDate expiryDate;
+}

@@ -1,0 +1,5 @@
+package com.creditcard.creditcards.entity;
+
+public class User {
+
+}

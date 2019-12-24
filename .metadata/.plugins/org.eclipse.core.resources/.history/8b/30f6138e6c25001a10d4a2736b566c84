@@ -1,0 +1,62 @@
+package com.creditcard.creditcards.service;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.creditcard.creditcards.constant.Constant;
+import com.creditcard.creditcards.dto.TransactionResponseDto;
+import com.creditcard.creditcards.entity.CreditCard;
+import com.creditcard.creditcards.entity.Transaction;
+import com.creditcard.creditcards.exception.CardNotFoundException;
+import com.creditcard.creditcards.exception.TransactionNotFoundException;
+import com.creditcard.creditcards.repository.TransactionRepository;
+
+@Service
+public class TransactionServiceImpl implements TransactionService {
+	@Autowired
+	TransactionRepository transactionRepository;
+
+	@Override
+	public List<TransactionResponseDto> transactionStatement(Long cardNo, Integer month, Integer year) {
+		// logger.info("Inside statement service");
+
+		TransactionResponseDto transactionResponseDto = new TransactionResponseDto();
+		List<TransactionResponseDto> statementList = new ArrayList<>();
+		String years = "20" + year;
+		int finalYears = Integer.parseInt(years);
+		LocalDate fromDate = LocalDate.of(finalYears, month, 01);
+		LocalDate toDate = fromDate.plusDays(29);
+		List<CreditCard> cardList = creditCardRepository.findByCardNumber(cardNo);
+		if (cardList.isEmpty()) {
+			throw new CardNotFoundException("Incorrect card Number");
+		} else {
+			CreditCard creditCard = cardList.get(0);
+			Long cardId = creditCard.getCardId();
+			// transactionResponseDto.setStatus("success");
+			String status = "SUCCESS";
+			List<Transaction> cardTransactions = transactionRepository.findByCardIdAndDateAndStatus(cardId, fromDate,
+					toDate, status);
+			for (Transaction transaction : cardTransactions) {
+				transactionResponseDto = new TransactionResponseDto();
+				transactionResponseDto.setAmount(transaction.getAmount());
+				transactionResponseDto.setDate(transaction.getDate());
+				transactionResponseDto.setDescription(transaction.getDescription());
+				transactionResponseDto.setStatus(transaction.getStatus());
+				transactionResponseDto.setTransactionId(transaction.getTransactionId());
+				statementList.add(transactionResponseDto);
+			}
+		}
+		if (statementList.isEmpty()) {
+			throw new TransactionNotFoundException(Constant.NO_RECORD_FOUND);
+		}
+
+		else {
+			return statementList;
+		}
+
+	}
+}

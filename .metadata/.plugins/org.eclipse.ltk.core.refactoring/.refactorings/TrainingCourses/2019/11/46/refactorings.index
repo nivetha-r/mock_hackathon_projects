@@ -1,0 +1,45 @@
+1573710475199	Rename type 'Book'
+1573710605557	Rename type 'BookBorrow'
+1573710746726	Rename compilation unit 'NoBookFound.java'
+1573710817858	Rename type 'BorrowResponseDTO'
+1573711039097	Rename type 'BorrowBookController'
+1573711212110	Rename type 'BookSearchController'
+1573711410309	Rename type 'BookController'
+1573711548547	Rename type 'LibraryConstants'
+1573711626460	Rename type 'BorrowBookSecheduler'
+1573711758404	Rename package 'com.hcl.booklib'
+1573711861596	Rename package 'com.hcl.booklib.config'
+1573711877200	Rename package 'com.hcl.booklib.repository'
+1573711890378	Rename package 'com.hcl.booklib.service'
+1573711910169	Rename package 'com.hcl.booklib.exception'
+1573711923713	Rename package 'com.hcl.booklib.entity'
+1573711934553	Rename package 'com.hcl.booklib.dto'
+1573711948171	Rename package 'com.hcl.booklib.util'
+1573711959037	Rename package 'com.hcl.booklib.controller'
+1573711973405	Rename package 'com.hcl.booklib.constants'
+1573712014519	Rename type 'BookService'
+1573712026570	Rename type 'BookServiceImpl'
+1573712040961	Rename type 'BorrowBookService'
+1573712055463	Rename type 'BorrowBookServiceImpl'
+1573712244200	Rename type 'BookRepository'
+1573712317308	Rename type 'BorrowBookRepository'
+1573714760250	Rename type 'BooklibApplication'
+1573714799878	Rename package 'com.hcl.booklib'
+1573714821404	Rename type 'BooklibApplicationTests'
+1573714834005	Rename package 'com.hcl.booklib.service'
+1573714851569	Rename package 'com.hcl.booklib.controller'
+1573714868085	Rename type 'BookBorrowControllerTest'
+1573714878058	Rename type 'BookControllerTest'
+1573714889778	Rename type 'BookSearchControllerTest'
+1573715916507	Rename type 'BookBorrowServiceImplTest'
+1573716774415	Rename type 'BookServiceImplTest'
+1573808580039	Copy compilation unit
+1573808589837	Delete element
+1573808621555	Copy compilation unit
+1573808638653	Copy compilation unit
+1573808667130	Delete element
+1573808673249	Delete element
+1573808729250	Copy compilation unit
+1573808739151	Delete element
+1573808991334	Copy compilation unit
+1573808997668	Delete element

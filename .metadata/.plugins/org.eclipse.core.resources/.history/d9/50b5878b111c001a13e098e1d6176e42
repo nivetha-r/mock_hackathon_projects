@@ -1,0 +1,14 @@
+package com.claim.medical.exception;
+
+public class PolicyNotFoundException extends Exception {
+
+	private static final long serialVersionUID = 1L;
+
+	public PolicyNotFoundException(String message) {
+		super(message);
+	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> cde6184974b57e00ebf62c1787eaae9dd488e242
+}

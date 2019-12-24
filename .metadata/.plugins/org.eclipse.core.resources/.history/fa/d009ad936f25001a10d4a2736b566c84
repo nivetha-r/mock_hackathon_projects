@@ -1,0 +1,59 @@
+package com.creditcard.creditcards.service;
+
+import java.time.LocalDate;
+import java.time.Year;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import com.creditcard.creditcards.dto.TransactionRequestDto;
+import com.creditcard.creditcards.dto.TransactionResponseDto;
+import com.creditcard.creditcards.entity.CreditCard;
+import com.creditcard.creditcards.entity.Transaction;
+import com.creditcard.creditcards.entity.User;
+import com.creditcard.creditcards.repository.TransactionRepository;
+
+@Service
+public class TransactionServiceImpl implements TransactionService{
+	
+	@Autowired
+	TransactionRepository transactionRepository;
+
+	@Override
+	public TransactionResponseDto monthlyTransactions(TransactionRequestDto transactionRequestDto) {
+		String month = String.format("%02d", transactionRequestDto.getMonth());
+		Integer year = transactionRequestDto.getYear();
+		LocalDate endDate = Year.parse(transactionRequestDto.getYear().toString()).atMonth(transactionRequestDto.getMonth()).atEndOfMonth();
+		LocalDate startDate = LocalDate.parse(year+"-"+month+"-"+"01");
+
+		User user = new User();
+		CreditCard creditCard=new  CreditCard();
+		user.setUserId(transactionRequestDto.getUserId());
+		List<Transaction> transactions = transactionRepository.getAllByCardAndTransactionDateBetween(creditCard,
+				startDate, endDate);
+		List<TransactionListResponseDTO> transactionListResponseDTOList = new ArrayList<>();
+		transactions.forEach(transaction -> {
+			TransactionListResponseDTO transactionListResponseDTO = new TransactionListResponseDTO();
+			transactionListResponseDTO.setTransactionType(transaction.getTransactionType());
+			transactionListResponseDTO.setTransactionDate(transaction.getTransactionDate());
+			transactionListResponseDTO.setTransactionAmount(transaction.getTransactionAmount());
+			transactionListResponseDTO.setTransactionDescription(transaction.getTransactionDescription());
+			transactionListResponseDTO.setTransactionId(transaction.getTransactionId());
+			transactionListResponseDTOList.add(transactionListResponseDTO);
+		});
+		TransactionResponseDto transactionResponseDTO = new TransactionResponseDto();
+		transactionResponseDTO.setTransactionListResponseDTO(transactionListResponseDTOList);
+		transactionResponseDTO.setStatuscode(Constant.ACCEPTED);
+		transactionResponseDTO.setMessage(Constant.SUCCESS);
+
+		return transactionResponseDTO;
+	}
+
+}
+
+
+
+	

@@ -1,0 +1,96 @@
+package com.hcl.trading.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="userstock")
+public class UserStock {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int orderid;
+	private int userid;
+	private String stockname;
+	private int quantity;
+	private double price;
+	private double totalprice;
+	private int brokerage;
+	private double brokerageAmount;
+	public int getOrderid() {
+		return orderid;
+	}
+	public void setOrderid(int orderid) {
+		this.orderid = orderid;
+	}
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+	public String getStockname() {
+		return stockname;
+	}
+	public void setStockname(String stockname) {
+		this.stockname = stockname;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public double getTotalprice() {
+		return totalprice;
+	}
+	public void setTotalprice(double totalprice) {
+		this.totalprice = totalprice;
+	}
+	public int getBrokerage() {
+		return brokerage;
+	}
+	public void setBrokerage(int brokerage) {
+		this.brokerage = brokerage;
+	}
+	public double getBrokerageAmount() {
+		return brokerageAmount;
+	}
+	public void setBrokerageAmount(double brokerageAmount) {
+		this.brokerageAmount = brokerageAmount;
+	}
+	@Override
+	public String toString() {
+		return "UserStock [orderid=" + orderid + ", userid=" + userid + ", stockname=" + stockname + ", quantity="
+				+ quantity + ", price=" + price + ", totalprice=" + totalprice + ", brokerage=" + brokerage
+				+ ", brokerageAmount=" + brokerageAmount + "]";
+	}
+	public UserStock(int orderid, int userid, String stockname, int quantity, double price, double totalprice,
+			int brokerage, double brokerageAmount) {
+		super();
+		this.orderid = orderid;
+		this.userid = userid;
+		this.stockname = stockname;
+		this.quantity = quantity;
+		this.price = price;
+		this.totalprice = totalprice;
+		this.brokerage = brokerage;
+		this.brokerageAmount = brokerageAmount;
+	}
+	
+	
+	
+}
+	
+	
+	
+	

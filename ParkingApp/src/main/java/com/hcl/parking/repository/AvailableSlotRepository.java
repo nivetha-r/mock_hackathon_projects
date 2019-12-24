@@ -1,0 +1,23 @@
+package com.hcl.parking.repository;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.hcl.parking.entity.RemainingSlots;
+
+public interface AvailableSlotRepository extends JpaRepository<RemainingSlots, Integer> {
+
+	List<RemainingSlots> findByDate(LocalDate date);
+
+//	@Query(value="SELECT * FROM parkingdb.available_slot  WHERE available_slot_id =?1 FOR UPDATE",nativeQuery = true)
+//	AvailableSlot lockSlot(int availableSlotId);
+	@Query("SELECT s FROM RemainingSlots s WHERE s.availslotId= :availslotId and s.status='Available'")
+	RemainingSlots lockSlot(@Param("availslotId") int availslotId);
+	
+
+}
+

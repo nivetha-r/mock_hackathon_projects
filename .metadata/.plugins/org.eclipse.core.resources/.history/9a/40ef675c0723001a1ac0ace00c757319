@@ -1,0 +1,13 @@
+package com.insurancepolicy.insurancepolicy.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.insurancepolicy.insurancepolicy.repository.PolicyRepository;
+
+@Service
+public class PolicyServiceImpl implements PolicyService {
+	@Autowired
+	PolicyRepository policyRepository;
+
+}

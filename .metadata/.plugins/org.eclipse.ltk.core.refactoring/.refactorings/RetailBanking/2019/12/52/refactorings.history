@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TransactionRequestDto.java&apos; to &apos;creditcards/src/main/java/com.creditcard.creditcards.dto&apos;&#x0D;&#x0A;- Original project: &apos;RetailBanking&apos;&#x0D;&#x0A;- Destination element: &apos;creditcards/src/main/java/com.creditcard.creditcards.dto&apos;&#x0D;&#x0A;- Original element: &apos;com.bank.retailbanking.dto.TransactionRequestDto.java&apos;" description="Copy compilation unit" destination="=creditcards/src\/main\/java&lt;com.creditcard.creditcards.dto" element1="/src\/main\/java&lt;com.bank.retailbanking.dto{TransactionRequestDto.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1577096078283" units="1" version="1.0"/>
+</session>

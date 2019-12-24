@@ -1,0 +1,64 @@
+package com.claim.medical.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.claim.medical.constants.Constant;
+import com.claim.medical.dto.ClaimDetailsResponseDto;
+import com.claim.medical.entity.Claim;
+import com.claim.medical.entity.PolicyHolder;
+import com.claim.medical.exception.PolicyNotFoundException;
+import com.claim.medical.repository.ClaimRepository;
+import com.claim.medical.repository.PolicyRepository;
+
+@Service
+public class ClaimServiceImpl implements ClaimService {
+	@Autowired
+	ClaimRepository claimRepository;
+	@Autowired 
+	PolicyRepository policyRepository;
+
+
+	@Override
+	public ClaimDetailsResponseDto viewClaimDetails(Long claimId) throws PolicyNotFoundException {
+		
+		Claim claim=claimRepository.findByClaimId(claimId);
+		PolicyHolder policyholder=policyRepository.findByPolicyHolderId(claimId);
+		
+		if(claim != null) {
+			Claim claims=claimRepository.findByClaimId(claim.getClaimId());
+			ClaimDetailsResponseDto claimDetailsResponseDto=new ClaimDetailsResponseDto();
+			claimDetailsResponseDto.setAdmittedDate(claim.getAdmittedDate());
+			claimDetailsResponseDto.setAilmentType(claim.getAilmentType());
+			claimDetailsResponseDto.setApproverComments(claim.getApproverComments());
+			claimDetailsResponseDto.setClaimAmount(claim.getClaimAmount());
+			claimDetailsResponseDto.setClaimDate(claim.getClaimDate());
+			claimDetailsResponseDto.setClaimStatus(claim.getClaimStatus());
+			claimDetailsResponseDto.setDiagnosis(claim.getDiagnosis());
+			claimDetailsResponseDto.setDischargeDate(claim.getDischargeDate());
+			claimDetailsResponseDto.setDischargeSummary(claim.getDischargeSummary());
+			claimDetailsResponseDto.setDoctorFee(claim.getDoctorFee());
+			claimDetailsResponseDto.setHospitalName(claim.getHospitalName());
+			claimDetailsResponseDto.setMedicalFee(claim.getMedicalFee());
+			claimDetailsResponseDto.setName(claim.getName());
+			claimDetailsResponseDto.setPolicyNumber(policyholder.getPolicyNumber());
+			
+			return claimDetailsResponseDto;
+		}
+		else {
+			throw new PolicyNotFoundException(Constant.POLICY_NOT_FOUND);
+		}
+	}
+
+	
+
+}
+			
+			
+			
+			
+	
+
+
+
+	

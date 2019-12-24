@@ -1,0 +1,60 @@
+package com.claim.medical.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.claim.medical.dto.ClaimDetailsResponseDto;
+import com.claim.medical.entity.Claim;
+import com.claim.medical.entity.PolicyHolder;
+import com.claim.medical.exception.PolicyNotFoundException;
+import com.claim.medical.repository.ClaimRepository;
+import com.claim.medical.repository.PolicyRepository;
+
+@Service
+public class ClaimServiceImpl implements ClaimService {
+	@Autowired
+	ClaimRepository claimRepository;
+	@Autowired 
+	PolicyRepository policyRepository;
+
+
+	@Override
+	public ClaimDetailsResponseDto viewClaimDetails(Long claimId) {
+		
+		Claim claim=claimRepository.findByClaimId(claimId);
+		PolicyHolder policyholder=policyRepository.findByPolicyHolderId(claimId);
+		
+		if(claim != null) {
+			Claim claims=claimRepository.findByClaimId(claim.getClaimId());
+	
+//			Claim claims=claimStatusRepository.findByClaimId(medicalClaim.getClaimId());
+//			log.info("claim found...");
+//			ClaimDetailsResponseDto claimDetailsResponseDto= new ClaimDetailsResponseDto();
+//			claimDetailsResponseDto.setClaimId(medicalClaim.getClaimId());
+//			claimDetailsResponseDto.setClaimRaisedDate(medicalClaim.getClaimRaisedDate());
+//			claimDetailsResponseDto.setClaimAmount(medicalClaim.getClaimAmount());
+//			claimDetailsResponseDto.setClaimType(policy.getPolicyType());
+//			claimDetailsResponseDto.setApproverId(claimStatus.getApproverId());
+//			claimDetailsResponseDto.setClaimFirstLevelStatus(claims.getClaimFirstLevelStatus());
+//			claimDetailsResponseDto.setClaimSecondLevelStatus(claims.getClaimSecondLevelStatus());
+//			claimDetailsResponseDto.setSeniorAppoverId(claims.getSeniorAppoverId());
+//			claimDetailsResponseDto.setStatusMessage(MedicalClaimConstants.SUCCESS_STATUS_MESSAGE_POLICY_FETCH);
+//			claimDetailsResponseDto.setStatusCode(MedicalClaimConstants.SUCCESS_STATUS_CODE);
+//			claimDetailsResponseDto.setStatus("success");
+
+		
+		return claimDetailsResponseDto;
+		}
+		else {
+			throw new PolicyNotFoundException(MedicalClaimConstants.INVALIED_STATUS_MESSAGE_POLICY_FETCH);
+		}
+	}
+
+
+	@Override
+	public ClaimDetailsResponseDto viewClaimDetails(Integer claimId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	

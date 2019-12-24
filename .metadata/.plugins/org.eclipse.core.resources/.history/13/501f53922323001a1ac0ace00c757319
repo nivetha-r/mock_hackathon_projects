@@ -1,0 +1,22 @@
+package com.insurancepolicy.insurancepolicy.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Data
+@Setter
+@Getter
+public class TrendingDto {
+	public String policyName;
+	public Long count;
+	public Double percentage;
+
+	public TrendingDto() {
+	}
+
+	public TrendingDto(Long count, String policyName) {
+		this.policyName = policyName;
+		this.count = count;
+	}
+
+}

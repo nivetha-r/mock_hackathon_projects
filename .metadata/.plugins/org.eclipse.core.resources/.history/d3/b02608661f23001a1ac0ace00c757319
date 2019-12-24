@@ -1,0 +1,13 @@
+package com.insurancepolicy.insurancepolicy.dto;
+
+public class TrendingDto {
+	public Long policyId;
+	public String policyName;
+	public Long count;
+	public Double percentage;
+	public String message;
+	public Integer statuscode;
+
+	public TrendingDto() {
+	}
+}

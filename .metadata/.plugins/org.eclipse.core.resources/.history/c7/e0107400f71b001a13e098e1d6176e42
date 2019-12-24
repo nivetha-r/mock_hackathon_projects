@@ -1,0 +1,10 @@
+package com.claim.medical.service;
+
+import com.claim.medical.entity.Claim;
+import com.claim.medical.exception.PolicyNotFoundException;
+
+public interface ClaimService {
+
+	Claim viewClaimDetails(Long claimId) throws PolicyNotFoundException;
+
+}

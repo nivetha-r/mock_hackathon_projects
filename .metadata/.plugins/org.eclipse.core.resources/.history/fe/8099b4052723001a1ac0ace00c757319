@@ -1,0 +1,24 @@
+package com.insurancepolicy.insurancepolicy.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data
+@Setter
+@Getter
+@AllArgsConstructor
+public class TrendingDto {
+	public String policyName;
+	public int count;
+	
+	public TrendingDto() {
+	}
+
+	public TrendingDto(Integer count, String policyName) {
+		this.policyName = policyName;
+		this.count = count;
+	}
+
+}

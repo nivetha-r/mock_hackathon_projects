@@ -1,0 +1,48 @@
+package com.matrimony.cassini.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.matrimony.cassini.constants.Constant;
+import com.matrimony.cassini.dto.RaiseRequestDto;
+import com.matrimony.cassini.dto.RaiseResponseDto;
+import com.matrimony.cassini.entity.User;
+import com.matrimony.cassini.entity.UserMapping;
+import com.matrimony.cassini.exception.UserNotFoundException;
+import com.matrimony.cassini.repository.UserMappingRepository;
+import com.matrimony.cassini.repository.UserRepository;
+
+@Service
+public class UserMappingServiceImpl implements UserMappingService {
+	@Autowired
+	UserMappingRepository userMappingRepository;
+	@Autowired
+	UserRepository userRepository;
+
+	@Override
+	public RaiseResponseDto raiseRequest(RaiseRequestDto raiseRequestDto) throws UserNotFoundException {
+		// Optional<User> user=userRepository.findById(userId);
+
+		Optional<User> sender = userRepository.findById(raiseRequestDto.getFromUserId());
+		Optional<User> receiver = userRepository.findById(raiseRequestDto.getToUserId());
+		if (!sender.isPresent()) {
+			throw new UserNotFoundException(Constant.SENDER_PROFILE_NOT_FOUND);
+		}
+		if (!receiver.isPresent()) {
+			throw new UserNotFoundException(Constant.RECEIVER_PROFILE_NOT_FOUND);
+		}
+		UserMapping mapping = new UserMapping();
+		mapping.setStatus("interested");
+		mapping.setFromUser(sender.get());
+		mapping.setToUser(receiver.get());
+		userMappingRepository.save(mapping);
+		RaiseResponseDto raiseResponseDto=new RaiseResponseDto();
+		raiseResponseDto.setMessage(Constant.REQUESTED);
+		raiseResponseDto.setStatusCode(Constant.OK);
+		return raiseResponseDto;
+
+	}
+
+}

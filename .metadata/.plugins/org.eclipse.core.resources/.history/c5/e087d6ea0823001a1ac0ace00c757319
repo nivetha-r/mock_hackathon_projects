@@ -1,0 +1,62 @@
+package com.insurancepolicy.insurancepolicy.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.insurancepolicy.insurancepolicy.constants.Constants;
+import com.insurancepolicy.insurancepolicy.dto.TrendingResponseDto;
+import com.insurancepolicy.insurancepolicy.entity.Policy;
+import com.insurancepolicy.insurancepolicy.exception.PolicyNotFoundException;
+import com.insurancepolicy.insurancepolicy.exception.TrendingsNotFoundException;
+import com.insurancepolicy.insurancepolicy.repository.PolicyRepository;
+import com.insurancepolicy.insurancepolicy.repository.TrendingRepository;
+
+@Service
+public class TrendingServiceImpl implements TrendingService{
+	
+	
+	@Autowired
+	TrendingRepository trendingRepository;
+	
+	@Autowired
+	PolicyRepository policyRepository;
+	
+
+	@Override
+	public List<TrendingResponseDto> getAllTrendingPolicies() {
+		List<TrendingResponseDto> tredingResponseList = policyRepository.getAllTrendings();
+
+		long count = policyRepository.count();
+
+		List<TrendingResponseDto> trendingAllResposeList = new ArrayList<>();
+
+		for (TrendingResponseDto response : tredingResponseList) {
+			TrendingResponseDto trendingResponseDto = new TrendingResponseDto();
+
+			Optional<Policy> policy = policyRepository.findById(response.getPolicyId());
+
+			if (!policy.isPresent())
+				throw new PolicyNotFoundException(" policy not present");
+
+			trendingResponseDto.setPolicyName(policy.get().getPolicyName());
+			trendingResponseDto.setPolicyId(policy.get().getPolicyId());
+			trendingResponseDto.setCount(response.getCount());
+			trendingResponseDto.setPercentage(response.getPercentage());
+
+		}
+
+		return trendingAllResposeList;
+	}
+		
+		
+		
+	
+		
+
+
+}

@@ -1,0 +1,16 @@
+package com.insurancepolicy.insurancepolicy.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.insurancepolicy.insurancepolicy.dto.TrendingResponseDto;
+import com.insurancepolicy.insurancepolicy.entity.Policy;
+
+@Repository
+public interface PolicyHolderRepository extends JpaRepository<PolicyHolder, Long>{
+ 
+}
+

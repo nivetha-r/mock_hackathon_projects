@@ -1,0 +1,58 @@
+package com.hcl.trading.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="stock")
+public class Stock {
+	@Id
+	@Column
+	private int stockId;
+	@Column
+	private String stockName;
+	@Column
+	private int qtyAvail;
+	@Column
+	private double price;
+	@Column
+	private int brokerage;
+	public int getStockId() {
+		return stockId;
+	}
+	public void setStockId(int stockId) {
+		this.stockId = stockId;
+	}
+	public int getStockName() {
+		return stockName;
+	}
+	public void setStockName(int stockName) {
+		this.stockName = stockName;
+	}
+	public int getQtyAvail() {
+		return qtyAvail;
+	}
+	public void setQtyAvail(int qtyAvail) {
+		this.qtyAvail = qtyAvail;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public int getBrokerage() {
+		return brokerage;
+	}
+	public void setBrokerage(int brokerage) {
+		this.brokerage = brokerage;
+	}
+	@Override
+	public String toString() {
+		return "Stock [stockId=" + stockId + ", stockName=" + stockName + ", qtyAvail=" + qtyAvail + ", price=" + price
+				+ ", brokerage=" + brokerage + "]";
+	}
+
+}

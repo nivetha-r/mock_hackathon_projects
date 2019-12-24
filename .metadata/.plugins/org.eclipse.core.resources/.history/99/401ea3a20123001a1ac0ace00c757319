@@ -1,0 +1,7 @@
+package com.insurancepolicy.insurancepolicy.constants;
+
+public class Constants {
+	
+	public static final String TRENDINDS_NOT_FOUND="Trending policies not found";
+
+}

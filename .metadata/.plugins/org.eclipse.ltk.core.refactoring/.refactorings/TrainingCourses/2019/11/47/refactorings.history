@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SwaggerConfig.java&apos; to &apos;ParkingApp/src/main/java/com.hcl.parking.config&apos;&#x0D;&#x0A;- Original project: &apos;TrainingCourses&apos;&#x0D;&#x0A;- Destination element: &apos;ParkingApp/src/main/java/com.hcl.parking.config&apos;&#x0D;&#x0A;- Original element: &apos;com.hcl.training.config.SwaggerConfig.java&apos;" description="Copy compilation unit" destination="=ParkingApp/src\/main\/java&lt;com.hcl.parking.config" element1="/src\/main\/java&lt;com.hcl.training.config{SwaggerConfig.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1574068950294" units="1" version="1.0"/>
+</session>

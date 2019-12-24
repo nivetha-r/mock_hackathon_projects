@@ -1,0 +1,9 @@
+package com.claim.medical.service;
+
+import com.claim.medical.dto.ClaimDetailsResponseDto;
+
+public interface ClaimService {
+
+	ClaimDetailsResponseDto viewClaimDetails(Long claimId);
+
+}

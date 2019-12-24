@@ -1,0 +1,18 @@
+package com.insurancepolicy.insurancepolicy.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.insurancepolicy.insurancepolicy.entity.PolicyHolder;
+
+@Repository
+public interface PolicyHolderRepository extends JpaRepository<PolicyHolder, Long> {
+	
+	@Query("SELECT count(*) FROM insurancepolicy.policy_holder ph inner join policy p on p.policy_id=ph.policy_id" + 
+			" group by ph.policy_id", nativeQuery = true)
+	List<PolicyHolder> getAllTrendingPolicies(); 
+
+}

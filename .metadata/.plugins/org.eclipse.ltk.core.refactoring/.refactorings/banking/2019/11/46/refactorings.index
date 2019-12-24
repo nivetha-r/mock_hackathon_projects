@@ -1,0 +1,27 @@
+1573457410026	Delete element
+1573457502003	Delete elements
+1573457588850	Delete elements
+1573458459621	Rename type 'UserDetails'
+1573458679006	Rename type 'BankTransactionController'
+1573458700408	Rename type 'TopTransactionsController'
+1573458727019	Rename type 'TopTransactionsRepository'
+1573458760059	Rename type 'BankTransactionService'
+1573458772542	Rename type 'BankTransactionServiceImpl'
+1573458902244	Rename type 'AccountDTO'
+1573458915138	Delete element
+1573458936865	Delete element
+1573458980778	Rename type 'PayeeDTO'
+1573459024738	Rename type 'TransactionsDTO'
+1573459041974	Rename type 'UserDetailsDTO'
+1573459076362	Rename type 'UserResponseDTO'
+1573459135986	Rename type 'TopTransactionsService'
+1573460276277	Delete element
+1573460354296	Rename type 'ErrorResponse'
+1573460372282	Rename type 'ExceptionPojo'
+1573460397724	Rename type 'EnterValidCredentials'
+1573460421515	Rename type 'UserNotFound'
+1573460464978	Rename type 'BankException'
+1573460823085	Rename type 'Exception'
+1573460861940	Rename type 'ExceptionUnit'
+1573638382311	Copy file
+1573638476819	Copy compilation unit

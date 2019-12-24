@@ -1,0 +1,11 @@
+package com.insurancepolicy.insurancepolicy.service;
+
+import java.util.List;
+
+import com.insurancepolicy.insurancepolicy.dto.TrendingResponseDto;
+
+public interface TrendingService  {
+
+	List<TrendingResponseDto> getAllTrendingPolicies();
+
+}

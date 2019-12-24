@@ -1,0 +1,19 @@
+package com.hcl.trading.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="stock")
+public class Stock {
+	@Id
+	private int stockId;
+	private String stockName;
+	private int qtyAvail;
+	private double price;
+	private int brokerage;
+	
+	
+
+}

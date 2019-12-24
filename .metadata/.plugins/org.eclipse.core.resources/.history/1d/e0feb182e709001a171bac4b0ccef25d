@@ -1,0 +1,50 @@
+package com.hcl.parking.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="reg")
+public class Registration implements Serializable {
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
+	private Integer regId;
+	private String userName;
+	private String password;
+	private Integer empId;
+	public Integer getRegId() {
+		return regId;
+	}
+	public void setRegId(Integer regId) {
+		this.regId = regId;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Integer getEmpId() {
+		return empId;
+	}
+	public void setEmpId(Integer empId) {
+		this.empId = empId;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+}

@@ -1,0 +1,20 @@
+package snippet;
+
+public class Snippet {
+	@PostMapping
+		public ResponseEntity<LoginResponseDto> loginUser(@RequestBody UserLogin userLogin) throws UserNotFoundException {
+			logger.info("Inside validating user method");
+			LoginResponseDto loginResponseDto = loginService.loginUser(userLogin.getUserName(), userLogin.getPassword());
+			if (loginResponseDto != null) {
+				loginResponseDto.setStatusCode(Constant.VALID_CREDENTIALS);
+				loginResponseDto.setMessage(Constant.USER_FOUND);
+				return new ResponseEntity<>(loginResponseDto, HttpStatus.OK);
+			} else {
+				loginResponseDto = new LoginResponseDto();
+				loginResponseDto.setStatusCode(Constant.INVALID_CREDENTIALS);
+				loginResponseDto.setMessage(Constant.USER_NOT_FOUND);
+				return new ResponseEntity<>(loginResponseDto, HttpStatus.NOT_FOUND);
+			}
+	
+}
+

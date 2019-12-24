@@ -1,0 +1,10 @@
+package com.insurancepolicy.insurancepolicy.dto;
+
+public class TrendingDto {
+	
+	public String message;
+	public Integer statuscode;
+
+	public TrendingDto() {
+	}
+}

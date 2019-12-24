@@ -1,0 +1,14 @@
+1577091619522	Rename type 'UserController'
+1577091965234	Rename type 'UserService'
+1577091981178	Rename type 'UserServiceImpl'
+1577092127409	Delete element
+1577092137500	Rename type 'UserRepository'
+1577092826911	Rename type 'UserResponseDto'
+1577092924777	Rename type 'DetailedStatementResponseDTO'
+1577094740318	Rename type 'TransactionResponseDTO'
+1577094865369	Copy compilation unit
+1577095066593	Copy compilation unit
+1577096230691	Rename type 'TransactionResponseDto'
+1577099340008	Delete element
+1577099673272	Delete element
+1577166035668	Delete element

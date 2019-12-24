@@ -1,0 +1,32 @@
+package com.insurancepolicy.insurancepolicy.controller;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.insurancepolicy.insurancepolicy.dto.TrendResponseDto;
+import com.insurancepolicy.insurancepolicy.service.PolicyHolderService;
+import com.insurancepolicy.insurancepolicy.service.PolicyHolderServiceImpl;
+
+@RunWith(MockitoJUnitRunner.Silent.class)
+public class PolicyControllerTest {
+	
+	@InjectMocks
+	PolicyController policyController;
+	
+	@Mock
+	PolicyHolderService policyHolderService;
+	
+	@Test
+	public void testGetTrends() {
+		//List<TrendResponseDto> trendResponseDto=new TrendResponseDtos();
+		Mockito.when(policyHolderService.trendAnalysis()).thenReturn(trendResponseDto);
+		
+	}
+
+}

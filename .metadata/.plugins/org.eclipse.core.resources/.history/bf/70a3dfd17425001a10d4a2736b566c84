@@ -1,0 +1,5 @@
+package com.creditcard.creditcards.dto;
+
+public class UserResponseDto {
+
+}
